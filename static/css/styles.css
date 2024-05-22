@@ -1,0 +1,134 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #1e1e1e;
+    color: #cfcfcf;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #282c34;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.header nav ul li {
+    margin: 0 10px;
+}
+
+.header nav ul li button {
+    padding: 10px 20px;
+    border: none;
+    background: #61dafb;
+    color: #282c34;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+}
+
+.header nav ul li button:hover {
+    background: #21a1f1;
+    transform: translateY(-2px);
+}
+
+#run-button {
+    background: #61dafb;
+    color: #282c34;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+}
+
+#run-button:hover {
+    background: #21a1f1;
+    transform: translateY(-2px);
+}
+
+.main-container {
+    display: flex;
+    flex: 1;
+    border-top: 2px solid #444;
+}
+
+.left-section, .right-section {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.splitter {
+    width: 2px;
+    background-color: #444;
+}
+
+.editor {
+    display: flex;
+    background: #282c34;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #444;
+}
+
+.line-numbers {
+    background: #1e1e1e;
+    color: #888;
+    padding: 10px;
+    text-align: right;
+    user-select: none;
+}
+
+.line-numbers span {
+    display: block;
+}
+
+.code-content {
+    padding: 10px;
+    white-space: pre-wrap;
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #cfcfcf;
+}
+
+.section-content {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.section-content.active {
+    display: block;
+}
+
+pre {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #282c34;
+    color: #61dafb;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compiler Theme Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <ul>
+                <li><button onclick="showSection('about')">About</button></li>
+                <li><button onclick="showSection('experience')">Experience</button></li>
+                <li><button onclick="showSection('projects')">Projects</button></li>
+                <li><button onclick="showSection('skills')">Skills</button></li>
+            </ul>
+        </nav>
+        <button id="run-button" onclick="runCode()">Run</button>
+    </div>
+    <div class="main-container">
+        <div class="left-section">
+            <div class="editor">
+                <div class="line-numbers">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+                <div class="code-content">
+                    <div class="section-content" id="about">About content goes here...</div>
+                    <div class="section-content" id="experience">Experience content goes here...</div>
+                    <div class="section-content" id="projects">Projects content goes here...</div>
+                    <div class="section-content" id="skills">Skills content goes here...</div>
+                </div>
+            </div>
+        </div>
+        <div class="splitter"></div>
+        <div class="right-section">
+            <pre id="output">Output will be shown here...</pre>
+        </div>
+    </div>
+    <script src="../static/js/scripts.js"></script>
+</body>
+</html>
