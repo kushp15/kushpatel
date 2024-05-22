@@ -1,3 +1,5 @@
+/* styles.css */
+
 body {
     font-family: 'Roboto Mono', monospace;
     background-color: #1e1e1e;
@@ -109,16 +111,25 @@ body {
     color: #cfcfcf;
 }
 
-.section-content {
-    display: none;
-    animation: fadeIn 0.5s;
+.about-container, .experience-container, .projects-container, .skills-container {
+    text-align: center;
 }
 
-.section-content.active {
+.about-image {
+    max-width: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
     display: block;
 }
 
-pre {
+.about-text, .experience-container ul, .projects-container ul, .skills-container ul {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #cfcfcf;
+    text-align: center;
+}
+
+#output {
     font-family: 'Roboto Mono', monospace;
     background-color: #282c34;
     color: #61dafb;
