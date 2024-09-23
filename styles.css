@@ -149,3 +149,46 @@ nav a:hover {
     opacity: 1;
     transform: translateY(0);
 }
+
+
+
+
+/* Container for moving words */
+#moving-words-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent clicks on moving words */
+    overflow: hidden; /* Hide overflow of words */
+    z-index: 1; /* Put above other content */
+}
+
+/* Style for each moving word */
+.moving-word {
+    position: absolute;
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.4); /* Lighter shade for better visibility */
+    pointer-events: none; /* Prevent interaction with moving words */
+    animation: floatWord 15s ease-in-out infinite;
+}
+
+/* Random movement animation */
+@keyframes floatWord {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(30vw, -20vh);
+    }
+    50% {
+        transform: translate(-20vw, 30vh);
+    }
+    75% {
+        transform: translate(20vw, -30vh);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
