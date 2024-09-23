@@ -192,3 +192,48 @@ nav a:hover {
         transform: translate(0, 0);
     }
 }
+
+
+
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    margin: 20px auto;
+}
+
+/* Carousel Inner */
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Carousel Images */
+.carousel img {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer; /* To indicate that it's interactive */
+}
+
+/* Carousel Dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.carousel-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-dots span.active {
+    background-color: #00adb5; /* Active dot color */
+}
