@@ -237,3 +237,13 @@ nav a:hover {
 .carousel-dots span.active {
     background-color: #00adb5; /* Active dot color */
 }
+
+.change-font-work-exp{
+    font-size: 10pt;
+    font-family: Arial, sans-serif;
+}
+.highlight{
+    font-size: 18pt;
+    color: rgb(255, 0, 212);
+    font-weight: bold;
+}
