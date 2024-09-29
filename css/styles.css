@@ -164,19 +164,6 @@ nav a:hover {
 }
 
 /* Responsive Design */
-/* @media (max-width: 768px) {
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .nav-container {
-        flex-direction: column;
-        height: 40px;
-    }
-} */
-
-/* Responsive Design */
 @media (max-width: 768px) {
     /* Hide the logo on smaller screens */
     .nav-logo {
