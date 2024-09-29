@@ -8,8 +8,12 @@ body {
 }
 
 nav {
-    background-color: #007BFF;
+    background-color: #007BFF; /* Nav background color */
     padding: 1em;
+    position: fixed; /* Fix the navigation */
+    top: 0;
+    width: 100%; /* Ensure nav spans full width */
+    z-index: 1000; /* Keep it above all content */
 }
 
 .nav-container {
@@ -26,6 +30,7 @@ nav {
     border-radius: 50%;
 }
 
+/* Navigation Links */
 nav ul {
     list-style: none;
     margin: 0;
@@ -39,11 +44,13 @@ nav a {
     text-decoration: none;
     padding: 0.5em 1em;
     transition: background-color 0.3s ease;
+    font-size: 1.1rem;
 }
 
 nav a:hover {
-    background-color: #FFC107;
+    background-color: #FFC107; /* Hover effect for links */
 }
+
 
 .hero-container {
     max-width: 1200px;
@@ -157,7 +164,7 @@ nav a:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .hero-container {
         flex-direction: column;
         text-align: center;
@@ -165,6 +172,29 @@ nav a:hover {
 
     .nav-container {
         flex-direction: column;
+        height: 40px;
+    }
+} */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Hide the logo on smaller screens */
+    .nav-logo {
+        display: none;
+    }
+
+    /* Ensure navigation links are still visible */
+    .nav-container {
+        flex-direction: row;
+        justify-content: space-around;
+        height: auto; /* Allow the height to adjust naturally */
+    }
+
+    /* Navigation links stay in a single line */
+    nav ul {
+        flex-direction: row;
+        gap: 5px;
+        margin-right: 5px;
     }
 }
 
@@ -178,4 +208,42 @@ nav a:hover {
     font-size: 25px;
     color: #003268;
     margin: 0;
+}
+
+.highlight-skills{
+    font-weight: bold;
+}
+
+.highlight-skills-special{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;    
+}
+
+/* Social Icons */
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-link {
+    color: #007BFF; /* Adjust color as per your theme */
+    font-size: 2rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    color: #FFC107; /* Hover color */
+}
+
+.social-link i {
+    margin-right: 10px; /* Add some space between icon and text */
+}
+
+/* Optional: For Resume link to have text along with the icon */
+.social-link i.fas {
+    margin-right: 5px;
 }
