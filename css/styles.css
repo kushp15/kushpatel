@@ -168,3 +168,14 @@ nav a:hover {
     }
 }
 
+.work-info{
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+}
+
+.heading{
+    font-size: 25px;
+    color: #003268;
+    margin: 0;
+}
