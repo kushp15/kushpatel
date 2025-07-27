@@ -1,215 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>KUSH PATEL PORTFOLIO</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    </head>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kush Patel Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
+
+
+<style>
+  body {
+    margin: 0;
+    background-color: #000000; /* 0f111a */
+    color: #00ffcc;
+    font-family: 'Fira Code', monospace;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .profile-img {
+    height: 300px;
+    max-width: 200px;
+    margin-bottom: 0.1rem;
+  }
+  .toggle-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: #002222aa;
+    border: 1px solid #00ffaa;
+    border-radius: 4px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1000;
+    font-family: 'Fira Code', monospace;
+    color: #00ffcc;
+    font-weight: bold;
+  }
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* height: 70vh; */
+    /* background-color: red; */
+    max-height: 450px;  /* Added */
+    height: 100%;       /* Added */
+  }
+
+  /* Terminal styles */
+.terminal-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #00ffaa;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 500px;  /* Added */
+  height: 100%;       /* Added */
+}
+
+.resume-container{
+    position: fixed;
+    top: 1rem;
+    right: 9rem;
+    background: #002222aa;
+    border: 1px solid #00ffaa;
+    border-radius: 4px;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    user-select: none;
+    z-index: 1000;
+    font-family: 'Fira Code', monospace;
+    font-size: 15px;
+    color: #00ffcc;
+    font-weight: bold;
+}
+
+.terminal {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: 100%;  /* Added */
+}
+
+  .prompt {
+    color: #00ffcc;
+    margin-top: 1.5rem;
+  }
+  .response {
+    color: #00ffaa;
+    margin-left: 1rem;
+    white-space: pre-wrap;
+  }
+  a {
+    color: #00ffee;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    border-top: 1px solid #00ffaa;
+    padding-top: 0.5rem;
+  }
+  .input-line span {
+    margin-right: 0.5rem;
+    color: #00ffcc;
+  }
+  #terminal-input {
+    background: transparent;
+    border: none;
+    color: #00ffaa;
+    font-family: 'Fira Code', monospace;
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+  }
+  .ai-response {
+    background: rgba(0, 255, 204, 0.1);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 3px solid #00ffcc;
+  }
+  .game-log {
+    font-size: 0.95rem;
+    background: rgba(0, 255, 170, 0.05);
+    padding: 0.5rem;
+    margin-top: 1rem;
+    border-left: 2px dashed #00ffaa;
+  }
+
+  /* Portfolio mode */
+  .portfolio {
+    flex: 1;
+    background: rgba(0, 255, 170, 0.05);
+    border: 1px solid #00ffaa;
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-y: auto;
+    display: none;
+    flex-direction: column;
+  }
+  .portfolio.active {
+    display: flex;
+  }
+  /* Portfolio nav buttons */
+  .portfolio-nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .portfolio-nav button {
+    background: transparent;
+    border: 1px solid #00ffaa;
+    color: #00ffaa;
+    font-family: 'Fira Code', monospace;
+    font-weight: bold;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .portfolio-nav button.active, .portfolio-nav button:hover {
+    background: #00ffaa;
+    color: #0f111a;
+  }
+  /* Project cards */
+  .project-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .project-card {
+    background: #002222cc;
+    border: 1px solid #00ffaa;
+    border-radius: 8px;
+    padding: 1rem;
+    width: calc(50% - 1rem);
+    box-sizing: border-box;
+  }
+  .project-card img {
+    max-width: 100%;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    border: 1px solid #00ffaa;
+  }
+  .project-title {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+  /* Text content style */
+  .section-content {
+    white-space: pre-wrap;
+  }
+
+
+  .footer {
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+}
+
+</style>
+
+
+
+</head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img class="icon-img" src="img/icon.webp" alt="Logo">
-            </div>
+    <a href="pdf/Kush-Patel-Resume-2024.pdf" target="_blank" class="resume-container">
+    <i class="fas fa-file-alt"></i> Resume
+    </a>
 
-            <ul>
-                <li><a href="#work-experience">Work Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#activities">Activities</a></li>
-            </ul>
+  <div class="toggle-container" id="toggleBtn" title="Toggle Terminal / Portfolio">Portfolio</div>
+
+  <h1>Kush Patel</h1>
+  <img class="profile-img" src="img/KushPhoto.png" alt="Your profile" />
+
+  <div class="container">
+    <div class="terminal-container" id="terminal-container">
+      <div class="terminal" id="terminal">
+        <div class="input-line">
+          <span>&gt;</span>
+          <input
+            type="text"
+            id="terminal-input"
+            autofocus
+            autocomplete="off"
+            placeholder="type a command or 'help'..."
+          />
         </div>
-    </nav>
+      </div>
+    </div>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="hero-container">
-            
-            <div class="hero-text">
-                <h1>KUSH PATEL</h1>
-                <div class="hero-img">
-                    <img class="img1" src="img/img1.png" alt="Profile Image">
-                </div>
-                <p class="para">Aspiring information security professional and data scientist with hands-on experience in software development, IT, and leveraging AI to combat complex cyber threats. Passionate about applying data science techniques to analyze, interpret, and predict patterns in large datasets. My goal is to enhance global digital security by integrating advanced AI and data science methods into cybersecurity solutions, driving proactive strategies to mitigate risks and improve decision-making.</p>
-            
-                <!-- Social Media Icons -->
-                <div class="social-icons">
-                    <a href="https://github.com/kushp15/" target="_blank" class="social-link">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/patelkush1508/" target="_blank" class="social-link">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://stackoverflow.com/users/20687378/kush-patel/" target="_blank" class="social-link">
-                        <i class="fab fa-stack-overflow"></i>
-                    </a>
-                    <a href="https://devpost.com/kushp15" target="_blank" class="social-link">
-                        <i class="fa-code"></i>
-                    </a>                    
-                    <a href="pdf/Kush-Patel-Resume-2024.pdf" target="_blank" class="social-link">
-                        <i class="fas fa-file-alt"></i> Resume
-                    </a>
-                </div>
-            </div>
-            
-        </div>
-    </section>
+    <div class="portfolio" id="portfolio">
+      <div class="portfolio-nav" id="portfolio-nav"></div>
+      <div id="portfolio-content"></div>
+    </div>
+  </div>
 
-    <!-- Work Experience Section -->
-    <section id="work-experience">
-        <div class="section-container">
-            <h2>Work Experience</h2></br>
-
-            <div class="work-info">
-                <div class="heading">
-                    <p>Tech Specialist - Developing</p>
-                    <p>R&D Altanova, Group of Advantest</p>
-                </div>
-                <div>
-                    <p>June 2024 - Present</p>
-                </div>    
-            </div>
-
-            <div class="change-font-work-exp">
-                </br>
-                    <li></li>
-                    <li>Developed and maintained dashboards ensuring production runtime implementing Netsuite SuiteQL, PostgreSQL, and Python  </li>
-                    <li>Desigining a local master automated software utilizing PyQt framework targeting to increase revenue, bookings, and managing production lead time </li>
-                    <li>Created customized reports for production efficiency using Netsuite SuiteQL, PostgreSQL, and Pandas</li>
-                    <li>Developed a Python bridge to automate thickness calculations by integrating a robotic arm with an existing .NET Framework application, utilizing Dynamic Data Exchange and REST API for seamless communication.</li>
-                    <li>Managed the Microsoft Admin Center and Exchange Center, resolving IT tickets, overseeing software installations, troubleshooting computer issues, and utilizing VMs for server management, permissions, access control, and group administration</li>
-                </br>
-            </div>
-
-            
-        </br>
-
-        <div class="work-info">
-            <div class="heading">
-                    <h3 class="highlight">Technology Intern</h3>
-                    <p>R&D Altanova, Group of Advantest</p>
-                </div>
-                <div class="time-frame-info">
-                    <p>August 2022 - June 2024</p>
-                </div>    
-            </div>
-            
-            <div class="change-font-work-exp">
-                </br>
-                    <li>Developed and deployed a dynamic web application for efficient IT asset management using Django, JavaScript, Apache, WSGI with a robust encryption protocol and streamline backup process. </li>
-                    <li>Re-engineered kiosk device user interface for enhanced usability and streamlined functionality, improving overall user experience. </li>
-                    <li>Conducted user training sessions to enhance proficiency in utilizing application function and features, resulting in improved user experience and productivity </li>
-                    <li>Audited and Managed backups for 600+ employees using EaseUS Administration, ensuring data integrity & Business continuity.</li>
-                    <li>Direct communication via ticketing system, phone calls, and emails with customers to assist with software questions or issues.</li>
-                    <li>Implemented smooth email migration to Office 365, minimizing disruption and optimizing communication efficiency.</li>
-                    <li>Experienced and knowledge of VMware, Windows servers, Active Directory, DNS, Microsoft Office, IP/TCP, and VPN protocols.</li>
-                </br>
-            </div>
-        </div>
-    </section>
+  <div class="footer">
+    <p>&copy; 2025 Kush Patel. All rights reserved.</p>
+  </div>
 
 
-    <section id="projects">
-        <div class="section-container">
-            <h2>Projects</h2></br>
+<script>
+  const toggleBtn = document.getElementById('toggleBtn');
+  const terminalContainer = document.getElementById('terminal-container');
+  const terminal = document.getElementById('terminal');
+  const input = document.getElementById('terminal-input');
+  const portfolio = document.getElementById('portfolio');
+  const portfolioNav = document.getElementById('portfolio-nav');
+  const portfolioContent = document.getElementById('portfolio-content');
 
+  // Keep track of current section and mode
+  let currentSection = 'help'; // default section to show initially
+  let mode = 'terminal'; // or 'portfolio'
 
-            <div class="project">
-                <a href="https://github.com/kushp15/WES-AI-CHATBOT/"><h1>AI-Powered Chatbot 🔗</h1></a>
-                <div class="carousel-container">
-                    <div class="carousel">
-                        <img src="img/wes-ai-chatbot.png" alt="Chatbot Image 1"> 
-                        <img src="img/wes-ai-chatbot-2.png" alt="Chatbot Image 2">
-                        <img src="img/wes-ai-chatbot-3.png" alt="Chatbot Image 3">
-                    </div>
-                    <div class="carousel-dots"></div> 
-                </div>
-                <p>We created this chatbot, which helped us understand the potential of leveraging AI...</p>
-            </div>
-            
+  // Commands text for terminal
+  const commands = {
+    help: `Available commands:
+- whoami
+- about
+- projects
+- contact
+- stack
+- game
+- portfolio  (switch to portfolio view)`,
+    whoami: 'Bridge builder between AI.....Cyber security.',
 
-        </br></br>
-            
-
-            <div class="project">
-                <a href="https://github.com/kushp15/AI-Email-Detection/"><h1>AI Email Scam Detector 🔗</h1></a>
-                <div class="carousel-container">
-                    <div class="carousel">
-                    </div>
-                    <div class="carousel-dots"></div>
-                </div>
-                <li>Synethesized a model that detects the scam or fraud emails implementing advanced deep learning algorithms.</li>
-                <li>Model aims to reduce the local cyber crimes and spread the awareness of emial phishing.</li>
-                <li>Model is trained on email ip address, domain name, SSL certificate, links, attachment types, text and other multiple significant parameters lead to current 67% accuracy. </li>
-            </div>
-        
-        </br></br>
-
-            <div class="project">
-                <a href="https://github.com/kushp15/HACKRU-TripMate_Notifier/"><h1>Trip Mate Notifier 🔗</h1></a>
-                <div class="carousel-container">
-                    <div class="carousel">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/CGtzFhLXZC8" 
-                                title="YouTube video player" frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="carousel-dots"></div>
-                </div>
-                <p class="highlight-skills-special">Hackathon Winner 1st HACKRU and NJ Transit</p>
-                <li> <span class="highlight-skills">Objective: </span>The application provides an option to start alerts on a trip which will then give detailed status of the current trip in the form of a notification panel/widget on the lock screen of the user's mobile.</li>
-                <li>To rebuild the current NJ Transit application, added new feature of widget that notifies the user of live location through NJ Transit APIs</li>
-                <li>Invited to NJ Transit headquaters pitched our objective to innovation team </li>
-            </div>
-        </br></br>
-
-            <div class="project">
-                <a href="https://github.com/kushp15/ML-Image-Classification/"><h1>Wiring Image Classification 🔗</h1></a>
-            
-                <li> <span class="highlight-skills">Objective: </span> To improve the efficiency of identifying a good or bad wiring based on color and order</li>
-                <li>Trained binary and multi classification models implementing complex machine learning techniques are stochastic gradient descent, cross entropy loss, softmax regression, and linear regression. </li>
-                <li>Models are trained on multiple parameters using one hot encoding with 2000+ parameters on multiple sizes sets of datasets</li>
-            </div>
-        
-        </div>
-    </section>
+    about: `Hi, I'm Kush Patel, I am an incoming Masters Student at Carnigie Mellon University studying Artificial Intelligence Engineering - Information Security. I have completed my undergraduate from Rutgers Rutgers University studied Computer Science & Business Administration. 
     
+    My goal is to enhance global digital security by integrating advanced AI methods into cybersecurity solutions, driving proactive strategies to mitigate risks and improve decision-making.`,
+    
+projects: `
+1. MCP Career Companion
+2. Scam Email Detection
+3. TripMate Notifier
+4. WesAI ChatBot
+5. File System (FUSE)
+6. comming soon...
+
+Type 'open <project no>No' to view details.`,
+    contact: `<br><br>Email: <a href='mailto:patelkush1508@gmail.com'>patelkush1508@gmail.com</a><br>GitHub : <a href='https://github.com/kushp15' target='_blank'>github.com/kushp15</a><br>LinkedIn: <a href='https://linkedin.com/in/patelkush1508' target='_blank'>linkedin.com/in/patelkush1508</a><br><br>`,
+    stack: `<br>Programming Languages  : Python, C, C++, Java, Typescript, Go<br>
+AI/ML Tools            : PyTorch, TensorFlow, Keras, Hugging Face, OpenCV, NLTK, NumPy, pandas<br>
+Platforms & DevOps     : Google Cloud (GCP), Heroku, Linux/Unix, Docker, Kubernetes, Git, CI/CD, SDLC, APIs<br><br> 
+`,
+    game: `Game started. Type: scan ports, decode packet, or reveal secret.`,
+  };
+
+  const projectDetails = {
+    1: {
+      title: 'MCP-Career-Companion (Python, Langchain, REST APIs, SQLite, PyTorch)',
+      desc: '<br>AI-powered job search assistant built on Modal Context Protocol (MCP) to track applications, automate follow-ups, and personalize user experience using contextual state management.<br><br>',
+      img: 'img/background.jpeg',
+      link: 'https://github.com/kushp15/MCP-Career-Companion',
+    },
+    2: {
+      title: 'Scam Email Detection (Python, NPL, Pytorch, TensorFlow)',
+      desc: '<br>A machine learning model that detects scam emails by analyzing text patterns and language features, distinguishing between human- and AI-generated spam using NLP techniques.<br><br><br>',
+      img: 'img/background.jpeg',
+      link: 'https://github.com/kushp15/neurosec',
+    },
+    3: {
+      title: 'Tripmate Notifier (Java, JavaFX, API)',
+      desc: '<br>1st Rank HACK-RU Fall 2023 Hackathon Winner (NJTRANSIT)<br><br>Tripmate Notifier is a Java-based transit companion app that enhances the NJ Transit experience with real-time trip alerts and mobile payment integration, built using JavaFX and live transit data.<br><br>',
+      img: 'img/background.jpeg',
+      link: 'https://github.com/kushp15/parsergen',
+    },
+    4: {
+      title: 'WesAI ChatBot (Python, transformers, Django, JS)',
+      desc: '<br>HACK-RU Spring 2024 Hackathon Participant<br><br>Wes AI Chatbot is an interactive AI assistant built with Python and Transformers, designed to answer queries about Rutgers bus routes, courses, and services, with a web interface powered by Django, Flask, and JavaScript.<br><br>',
+      img: 'img/background.jpeg',
+      link: 'https://github.com/kushp15/smartasm',
+    },
+    5: {
+      title: 'File System (FUSE) - C, Makefile, Benchmark',
+      desc: 'A user-space file system built with FUSE in C, supporting core file and directory operations with custom inode and block management, optimized to pass all performance benchmarks.',
+      img: 'img/background.jpeg',
+      link: 'https://github.com/kushp15/gptpatch',
+    },
+    6: {
+      title: 'Network Analyzer with AI',
+      desc: 'comming soon...',
+      img: 'img/background.jpeg',
+      link: 'https://github.com/kushp15/gptpatch',
+    },
+  };
+
+  // To store terminal history for persistence when toggling views
+  let terminalHistory = [];
+
+  // Render terminal entry (prompt + response)
+  function addTerminalEntry(promptText, responseHTML) {
+    if (promptText) {
+      const promptDiv = document.createElement('div');
+      promptDiv.className = 'prompt';
+      promptDiv.textContent = `> ${promptText}`;
+      terminal.insertBefore(promptDiv, terminal.querySelector('.input-line'));
+    }
+    if (responseHTML) {
+      const responseDiv = document.createElement('div');
+      responseDiv.className = 'response';
+      responseDiv.innerHTML = responseHTML;
+      terminal.insertBefore(responseDiv, terminal.querySelector('.input-line'));
+    }
+    // Save to history
+    terminalHistory.push({ prompt: promptText, response: responseHTML });
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  // Render portfolio navigation buttons
+  function renderPortfolioNav() {
+    portfolioNav.innerHTML = '';
+    const sections = ['about', 'whoami', 'projects', 'contact', 'stack', 'game'];
+    sections.forEach(section => {
+      const btn = document.createElement('button');
+      btn.textContent = section.toUpperCase();
+      if (section === currentSection) btn.classList.add('active');
+      btn.addEventListener('click', () => {
+        currentSection = section;
+        renderPortfolioContent();
+        renderPortfolioNav();
+      });
+      portfolioNav.appendChild(btn);
+    });
+  }
+
+  // Render portfolio content based on currentSection
+  function renderPortfolioContent() {
+    let html = '';
+    if (currentSection === 'help') {
+      html = `<pre>${commands.help}</pre>`;
+    } else if (currentSection === 'whoami') {
+      html = `<p>${commands.whoami}</p>`;
+    } else if (currentSection === 'about') {
+      html = `<p>${commands.about.replace(/\n/g, '<br>')}</p>`;
+    } else if (currentSection === 'projects') {
+      // Show project cards
+      html = '<div class="project-cards">';
+      for (const key in projectDetails) {
+        const p = projectDetails[key];
+        html += `<div class="project-card" data-project="${key}">
+          <img src="${p.img}" alt="${p.title}" />
+          <div class="project-title">${p.title}</div>
+          <div>${p.desc}</div>
+          <a href="${p.link}" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        </div>`;
+      }
+      html += '</div>';
+    } else if (currentSection === 'contact') {
+      html = commands.contact;
+    } else if (currentSection === 'stack') {
+      html = `<pre>${commands.stack}</pre>`;
+    } else if (currentSection === 'game') {
+      html = `<pre>${commands.game}</pre>`;
+    }
+    portfolioContent.innerHTML = html;
+
+    // Add click handlers to project cards to update currentSection with project detail
+    if (currentSection === 'projects') {
+      const cards = portfolioContent.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+          const key = card.getAttribute('data-project');
+          currentSection = `project:${key}`;
+          renderPortfolioContent();
+          renderPortfolioNav();
+        });
+      });
+    } else if (currentSection.startsWith('project:')) {
+      const key = currentSection.split(':')[1];
+      const p = projectDetails[key];
+      if (p) {
+        portfolioContent.innerHTML = `
+          <h2>${p.title}</h2>
+          <img src="${p.img}" alt="${p.title}" style="max-width: 100%; border: 1px solid #00ffaa; border-radius: 8px; margin-bottom: 1rem;" />
+          <p>${p.desc}</p>
+          <a href="${p.link}" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          <br><br>          
+          <button id="back-to-projects">Back to Projects</button>
+        `;
+        document.getElementById('back-to-projects').onclick = () => {
+          currentSection = 'projects';
+          renderPortfolioContent();
+          renderPortfolioNav();
+        };
+      }
+    }
+  }
+
+  // Toggle view mode
+  function toggleView() {
+    if (mode === 'terminal') {
+      mode = 'portfolio';
+      toggleBtn.textContent = 'Terminal';
+      terminalContainer.style.display = 'none';
+      portfolio.classList.add('active');
+      currentSection = 'about';
+      renderPortfolioContent();
+      renderPortfolioNav();
+    } else {
+      mode = 'terminal';
+      toggleBtn.textContent = 'Portfolio';
+      portfolio.classList.remove('active');
+      terminalContainer.style.display = 'flex';
+      input.focus();
+    }
+  }
+
+  // Handle terminal commands input
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      const rawCmd = input.value.trim();
+      if (!rawCmd) return;
+      addTerminalEntry(rawCmd, '');
+      const lowerCmd = rawCmd.toLowerCase();
+
+      if (lowerCmd === 'help') {
+        addTerminalEntry('', commands.help.replace(/\n/g, '<br>'));
+        currentSection = 'help';
+      } else if (lowerCmd === 'whoami') {
+        addTerminalEntry('', commands.whoami);
+        currentSection = 'whoami';
+      } else if (lowerCmd === 'about') {
+        addTerminalEntry('', commands.about.replace(/\n/g, '<br>'));
+        currentSection = 'about';
+      } else if (lowerCmd === 'projects') {
+        addTerminalEntry('', commands.projects.replace(/\n/g, '<br>'));
+        currentSection = 'projects';
+      } else if (lowerCmd.startsWith('open ')) {
+        const projKey = lowerCmd.split(' ')[1];
+        console.log(projKey);
+        const p = projectDetails[projKey];
+        if (p) {
+          addTerminalEntry('', `<strong>${p.title}</strong><br>${p.desc}<br><a href="${p.link}" target="_blank" rel="noopener noreferrer">View on GitHub</a>`);
+          currentSection = `project:${projKey}`;
+        } else {
+          addTerminalEntry('', `Project '${projKey}' not found.`);
+        }
+      } else if (lowerCmd === 'contact') {
+        addTerminalEntry('', commands.contact);
+        currentSection = 'contact';
+      } else if (lowerCmd === 'stack') {
+        addTerminalEntry('', commands.stack.replace(/\n/g, '<br>'));
+        currentSection = 'stack';
+      } else if (lowerCmd === 'game') {
+        addTerminalEntry('', commands.game);
+        currentSection = 'game';
+      } else if (lowerCmd.startsWith('ask ai:')) {
+        const question = rawCmd.slice(7).trim();
+        if (!question) {
+          addTerminalEntry('', 'Please provide a question after "ask ai:"');
+        } else {
+          addTerminalEntry('', `<div class='ai-response'><strong>AI:</strong> Based on your question "${question}", here is a demo response.</div>`);
+        }
+      } else if (lowerCmd === 'portfolio') {
+        toggleView();
+      } else if (lowerCmd === 'terminal') {
+        toggleView();
+      } else {
+        addTerminalEntry('', `Unknown command: ${rawCmd}. Type 'help' for commands.`);
+      }
+
+      input.value = '';
+    }
+  });
+
+  // Toggle button click
+  toggleBtn.addEventListener('click', toggleView);
+
+  // On load, show help command output by default in terminal
+  window.onload = () => {
+    addTerminalEntry('', commands.help.replace(/\n/g, '<br>'));
+  };
 
 
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="section-container">
-            <h2>Skills</h2>
-            <!-- <p>Coming soon..</p> -->
-            <ul>
-                <li> <span class="highlight-skills">Primary Programming Languages:</span> Python, Java, JavaScript, TypeScript, SQL </li>
-                <li> <span class="highlight-skills">Secondary Programming Languages:</span> C++, C, React </li>
-                <li> <span class="highlight-skills">FrameWorks: </span> TensorFlow, PyTorch, PyQt5, .NET Framework </li>
-                <li> <span class="highlight-skills">Course Work: </span>Artificial Intelligence, Operating Systems, Computer Security, Networking, Deep Learning, System programming, Advanced Algorithums</li>
-                <li> <span class="highlight-skills">Tools: </span>Docker, Git, Visual Studio Code, Postman, Microsoft Azure, PyCharm, Eclipice, VM, </li>
-                <li> <span class="highlight-skills">Databases: </span>MySQL, SQlite, no sql (Mongo DB)</li>
-                <li> <span class="highlight-skills">Soft Skills: </span>Leadership, Teamwork, Team-building, Management, Conflict Resolution, Collaboration, Written and Verbal Communication</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Activities Section -->
-    <!-- <section id="activities">
-        <div class="section-container">
-            <h2>Activities</h2>
-            <p>Coming soon..</p>
-           
-        </div>
-    </section> -->
-
-    <div id="moving-words-container"></div>
-
-    <script src="js/script.js"></script>
+</script>
 </body>
 </html>
