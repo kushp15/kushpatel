@@ -1,0 +1,164 @@
+/* --- THEME VARIABLES (DEFAULT DARK) --- */
+:root {
+    --bg-color: #050505;
+    --sidebar-bg: #0a0a0a;
+    --text-color: #e0e0e0;
+    --accent-color: #00ff41; /* Neon Green */
+    --dim-color: #888;
+    --card-bg: #111;
+    --font-main: 'Courier New', Courier, monospace;
+    --border-style: 1px dashed #333;
+    --highlight-bg: rgba(0, 255, 65, 0.1);
+}
+
+/* --- LIGHT MODE VARIABLES --- */
+body.light-mode {
+    --bg-color: #f4f4f4;
+    --sidebar-bg: #e0e0e0;
+    --text-color: #1a1a1a;
+    --accent-color: #008f11;
+    --dim-color: #555;
+    --card-bg: #fff;
+    --border-style: 1px dashed #bbb;
+    --highlight-bg: rgba(0, 143, 17, 0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.3s, color 0.3s; }
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    /* CHANGE: Fix the body height so the browser doesn't scroll */
+    height: 100vh; 
+    overflow: hidden; 
+}
+
+a { text-decoration: none; color: var(--text-color); transition: 0.2s; }
+a:hover { color: var(--accent-color); }
+
+/* --- LAYOUT --- */
+.container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    width: 100%;
+    /* CHANGE: Add margins but keep it within screen height */
+    margin: 40px;
+    height: calc(100vh - 80px); 
+    gap: 60px;
+}
+
+/* --- SIDEBAR --- */
+.sidebar { 
+    width: 250px; 
+    flex-shrink: 0; 
+    display: flex; 
+    flex-direction: column; 
+    /* Sidebar doesn't need to scroll, it stays put */
+    overflow-y: auto; 
+}
+/* Hide sidebar scrollbar if it gets too long */
+.sidebar::-webkit-scrollbar { display: none; }
+
+.avatar-container { width: 100%; display: flex; justify-content: flex-start; margin-bottom: 20px; }
+.avatar {
+    width: 180px; height: 180px; background-color: #1a1a1a; border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    background-image: url('img/KushPhoto.png'); 
+    background-size: cover; background-position: center;
+    filter: grayscale(100%);
+}
+.profile-name { font-size: 1.4rem; font-weight: bold; color: var(--accent-color); margin-bottom: 5px; }
+.profile-role { font-size: 0.9rem; color: var(--dim-color); margin-bottom: 20px; border-bottom: var(--border-style); padding-bottom: 20px; width: 100%; }
+.contact-info li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; }
+.contact-info i { color: var(--accent-color); width: 20px; text-align: center; }
+
+/* --- MAIN CONTENT --- */
+.main-content { 
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure it fills the container height */
+    overflow: hidden; /* Stop the main wrapper from scrolling */
+}
+
+.navbar { 
+    display: flex; 
+    justify-content: flex-end; 
+    gap: 30px; 
+    margin-bottom: 20px; 
+    font-size: 1.1rem; 
+    border-bottom: var(--border-style); 
+    padding-bottom: 15px; 
+    align-items: center;
+    flex-shrink: 0; /* Prevent navbar from shrinking */
+}
+.navbar a::before { content: "./"; color: var(--accent-color); opacity: 0.5; margin-right: 2px;}
+.navbar a:hover::before { opacity: 1; }
+
+.theme-toggle { cursor: pointer; background: none; border: 1px solid var(--accent-color); color: var(--accent-color); padding: 5px 10px; font-family: var(--font-main); font-size: 0.9rem; border-radius: 4px; }
+.theme-toggle:hover { background-color: var(--accent-color); color: var(--bg-color); }
+
+/* --- SCROLLABLE CONTENT AREA --- */
+#content-area {
+    flex-grow: 1; /* Take up all remaining space */
+    overflow-y: auto; /* ENABLE SCROLLING HERE */
+    padding-right: 15px; /* Prevent text from hitting scrollbar */
+}
+
+/* --- CUSTOM HACKER SCROLLBAR --- */
+#content-area::-webkit-scrollbar {
+    width: 8px;
+}
+#content-area::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1); 
+}
+#content-area::-webkit-scrollbar-thumb {
+    background: var(--dim-color); 
+    border-radius: 4px;
+}
+#content-area::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color); /* Turns green on hover */
+}
+
+/* Header & Text */
+h1 { font-size: 2rem; color: var(--accent-color); margin-bottom: 20px; border-left: 5px solid var(--accent-color); padding-left: 15px; }
+h1::after { content: '_'; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+p { margin-bottom: 20px; }
+strong { color: var(--text-color); font-weight: bold; background: var(--highlight-bg); padding: 0 4px; }
+
+/* --- PROJECTS CARD STYLES --- */
+.project-card {
+    background: var(--card-bg);
+    border: var(--border-style);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.project-title { font-size: 1.2rem; color: var(--accent-color); font-weight: bold; margin-bottom: 10px; display: block;}
+.tech-stack { font-size: 0.8rem; color: var(--dim-color); margin-bottom: 10px; display: block;}
+
+/* --- COURSE LIST STYLES --- */
+.course-list li { margin-bottom: 10px; list-style: none; }
+.course-list li::before { content: "> "; color: var(--accent-color); }
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        overflow: auto;
+    }
+    .container { 
+        flex-direction: column; 
+        margin: 20px; 
+        height: auto; 
+    }
+    .sidebar { width: 100%; align-items: center; text-align: center; }
+    .avatar-container { justify-content: center; }
+    .navbar { justify-content: center; flex-wrap: wrap; }
+    #content-area { overflow-y: visible; }
+}
