@@ -9,10 +9,10 @@ const pages = {
     about: `
         <h1>About Me</h1>
         <p>
-            Hello, I'm <strong>Kush Patel</strong>, a first year Master's in Artificial Intelligence and Information Security at the Information Networking Institute at <strong>Carnegie Mellon University</strong>.
+            Hello, I'm <strong>Kush Patel</strong>, currently studying Master's in Artificial Intelligence and Information Security at the Information Networking Institute at <strong>Carnegie Mellon University</strong>.
         </p>
         <p>
-            I recently graduated as the Institute <strong>SCS Honors</strong> from Rutgers University - Newbrunswick where I majored in Computer Science and Minor in Business Administration.
+            In 2024, I graduated as the Institute <strong>SCS Honors</strong> from <strong>Rutgers University - Newbrunswick</strong> where I majored in Computer Science and Minor in Business Administration.
         </p>
         
         <p style="color: var(--accent-color); margin-top: 30px;">
@@ -24,13 +24,44 @@ const pages = {
     projects: `
         <h1>Projects</h1>
         <p>Here is a selection of my recent work in NLP and Machine Learning.</p>
-        
+
         <div class="project-card">
-            <span class="project-title">Project - 1 TESTING </span>
-            <span class="tech-stack">[HTML, CSS, JS]</span>
-            <p>an testing description to projects</p>
+            <span class="project-title">When to Stop Thinking: Adaptive Chain-of-Thought Reasoning in LLMs </span>
+            <span class="tech-stack">[....]</span>
+            <p> Currrently working on it.... </p>
             <a href="#">[View Code]</a> <a href="#">[Read Paper]</a>
         </div>
+        
+        <div class="project-card">
+            <span class="project-title">Defending Against Indirect Prompt Injections: A Multi-Layered Verification Pipeline </span>
+            <span class="tech-stack">[Python, API, RAG, Llama 3 Instruct (8B), AWS, ReAct-style reasoning] - April 2026</span>
+            <p> Architected a 3-layer inference-time security pipeline to defend autonomous LLM agents against Indirect Prompt Injections (IPI) </p>
+            <p> Slashed the Attack Success Rate (ASR) of advanced social engineering payloads by 92.7% across 1,054 benchmark test cases without requiring model fine-tuning </p>
+            <p> Integrated a deterministic symbolic verifier and RAG-based threat intelligence system, reducing projected residual vulnerabilities to just 0.4% </p>
+            
+            <a href="https://github.com/kushp15/indirect-prompt-injection/tree/kp">[View Code]</a> <a href="https://docs.google.com/presentation/d/1v27lBaKVwQFrXltzUHP9vHWAVZn1UKjLWvdjSMTXJso/edit?usp=sharing">[Read Paper]</a>
+        </div>
+
+        <div class="project-card">
+            <span class="project-title">GOD-100: Gap & Product Count Estimation in Dense Retail Environments </span>
+            <span class="tech-stack">[Python, torch, Unik3D, CVAT, AWS ] - April 2026 </span>
+            <p> Developed end-to-end computer vision pipeline for retail analytics, combining object detection (YOLOv8, Faster R-CNN, DETR) with depth estimation (UniK3D, Depth-Anything) to detect shelf gaps and estimate missing product counts </p>
+            <p> Built and annotated custom datasets (10K+ bounding boxes, 1.3K+ gap labels), including synthetic data generation pipelines using depth-based heuristics to enable supervised learning for novel gap detection tasks </p>
+            <p> Designed and trained multi-modal deep learning models with RGB + depth fusion, improving gap detection (AP50 up to 28%) and enabling regression/classification-based product count estimation </p>
+            <p> Optimized model performance and deployment efficiency using PyTorch, AWS GPU (T4), mixed training strategies, and achieved sub-200ms inference latency for real-time retail shelf monitoring </p>
+            <a href="#">[View Code]</a> <a href="#">[Read Paper]</a>
+        </div>
+
+        <div class="project-card">
+            <span class="project-title">End-to-end NLP System Building (RAG) </span>
+            <span class="tech-stack">[Python, RAG, Selenium, BeautifulSoup4, crawl4ai, pdfplumber, FAISS, Rank-BM25, RRF ] - Feb 2026</span>
+            <p> Engineered an end-to-end Retrieval-Augmented Generation (RAG) pipeline to accurately answer domain-specific queries regarding Pittsburgh and Carnegie Mellon University, successfully mitigating LLM hallucinations on localized and time-sensitive data </p>
+            <p> Developed robust custom web scrapers using Selenium, BeautifulSoup, and pdfplumber to extract and clean unstructured text from dynamic websites, event calendars, and budget PDFs into a centralized knowledge base </p>
+            <p> Architected and evaluated four retrieval methodologies, ultimately deploying a Hybrid Retriever combining Sparse (BM25) and Dense search with Reciprocal Rank Fusion (RRF) and Cross-Encoder re-ranking, achieving a peak total system score of 48.93% and a 4.21 LLM Judge rating. </p>
+
+            <a href="https://github.com/kushp15/End-to-end-NLP-System-Building">[View Code]</a> <a href="https://github.com/kushp15/End-to-end-NLP-System-Building/blob/main/report.pdf">[Read Paper]</a>
+        </div>
+
     `,
 
     // 3. COURSES PAGE
