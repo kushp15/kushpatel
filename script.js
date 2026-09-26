@@ -1,5 +1,6 @@
 // --- CONFIGURATION ---
 const defaultPage = 'about';
+const resumeFile = 'pdf/kushPatel_resume_2026.pdf';
 
 // --- CONTENT DATA ---
 // You can edit the text inside these backticks (``) to update your website content.
@@ -9,12 +10,71 @@ const pages = {
     about: `
         <h1>About Me</h1>
         <p>
-            Hello, I'm <strong>Kush Patel</strong>, currently studying Master's in Artificial Intelligence and Information Security at the Information Networking Institute at <strong>Carnegie Mellon University</strong>.
+            Hello, I'm <strong>Kush Patel</strong>, a graduate student pursuing a <strong>Master of Science in Artificial Intelligence Engineering</strong> at the Information Networking Institute, <strong>Carnegie Mellon University</strong> (expected May 2027).
         </p>
         <p>
-            In 2024, I graduated as the Institute <strong>SCS Honors</strong> from <strong>Rutgers University - Newbrunswick</strong> where I majored in Computer Science and Minor in Business Administration.
+            I build AI systems that hold up in the real world: LLM agents that resist prompt injection, reasoning models that know when to stop thinking, and retrieval pipelines that ground answers in facts. My interests sit at the intersection of <strong>LLMs</strong>, <strong>AI security</strong>, and <strong>efficient inference</strong>.
         </p>
-        
+        <p>
+            Before CMU, I spent two years as a <strong>Software Engineer at Advantest America</strong>, shipping AI agents, OCR inspection tools, and data pipelines to production. In 2024, I graduated with <strong>SCS Honors</strong> from <strong>Rutgers University - New Brunswick</strong>, majoring in Computer Science with a Minor in Business Administration.
+        </p>
+
+        <div class="stat-grid">
+            <div class="stat-box"><span class="stat-num">$1M</span><span class="stat-label">est. annual savings from OCR inspection tool</span></div>
+            <div class="stat-box"><span class="stat-num">500M+</span><span class="stat-label">records processed by my ETL pipelines</span></div>
+            <div class="stat-box"><span class="stat-num">94%</span><span class="stat-label">extraction accuracy of document AI agent</span></div>
+            <div class="stat-box"><span class="stat-num">75% &rarr; 4.5%</span><span class="stat-label">prompt injection success rate cut on InjecAgent</span></div>
+        </div>
+
+        <h2 class="section-heading">$ cat experience.log</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="timeline-date">Aug 2025 &ndash; May 2027</span>
+                <span class="timeline-title">Carnegie Mellon University</span>
+                <span class="timeline-sub">M.S. Artificial Intelligence Engineering &middot; GPA 3.73/4.0</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">Jun 2024 &ndash; Present</span>
+                <span class="timeline-title">Software Engineer @ Advantest America, Inc</span>
+                <span class="timeline-sub">South Plainfield, NJ</span>
+                <ul class="timeline-points">
+                    <li>Built an LLM-powered agent that reads emails and attachments and auto-updates version-controlled project files (94% accuracy across 1000+ documents)</li>
+                    <li>Developed an OCR inspection tool for PCB layer stack-up that catches ~9 sequencing errors monthly, saving an estimated $1M a year</li>
+                    <li>Designed Spark + dbt ETL pipelines with CI/CD testing over 500M+ records at 99% uptime</li>
+                    <li>Bridged robotic APIs to legacy measurement software over TCP/IP, automating 80% of the inspection workflow</li>
+                    <li>Deployed a FastAPI dashboard platform for real-time visibility into live production data</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">Aug 2022 &ndash; May 2024</span>
+                <span class="timeline-title">Technology Intern @ Advantest America, Inc</span>
+                <span class="timeline-sub">Azure AD IAM, MFA &amp; conditional access for 500+ users &middot; automated audits across 1,000+ endpoints</span>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">Sep 2022 &ndash; Aug 2024</span>
+                <span class="timeline-title">Rutgers University - New Brunswick</span>
+                <span class="timeline-sub">B.S. Computer Science, Minor in Business Administration &middot; SCS Honors &middot; GPA 3.67/4.0</span>
+            </div>
+        </div>
+
+        <h2 class="section-heading">$ ls ./skills</h2>
+        <div class="skill-group">
+            <span class="skill-label">Languages</span>
+            <div class="skill-tags"><span>Python</span><span>Go</span><span>C/C++</span><span>TypeScript</span><span>SQL</span></div>
+        </div>
+        <div class="skill-group">
+            <span class="skill-label">AI / ML</span>
+            <div class="skill-tags"><span>LLMs</span><span>RAG</span><span>AI Agents</span><span>MCP</span><span>Transformers</span><span>QLoRA</span><span>Quantization</span><span>OCR</span><span>Computer Vision</span></div>
+        </div>
+        <div class="skill-group">
+            <span class="skill-label">Frameworks</span>
+            <div class="skill-tags"><span>PyTorch</span><span>TensorFlow/Keras</span><span>Hugging Face</span><span>LangChain</span><span>LangGraph</span><span>JAX</span><span>ONNX</span><span>OpenCV</span><span>YOLO</span><span>Spark</span><span>Polars</span><span>FastAPI</span><span>Flask</span><span>React</span></div>
+        </div>
+        <div class="skill-group">
+            <span class="skill-label">Infra &amp; Data</span>
+            <div class="skill-tags"><span>Postgres</span><span>Kafka</span><span>BigQuery</span><span>dbt</span><span>FAISS</span><span>Docker</span><span>Git</span><span>CI/CD</span><span>AWS</span><span>GCP</span><span>Azure</span></div>
+        </div>
+
         <p style="color: var(--accent-color); margin-top: 30px;">
             > Feel free to reach out to discuss potential collaborations.
         </p>
@@ -23,45 +83,118 @@ const pages = {
     // 2. PROJECTS PAGE
     projects: `
         <h1>Projects</h1>
-        <p>Here is a selection of my recent work in NLP and Machine Learning.</p>
+        <p>Here is a selection of my recent work in LLM security, reasoning, retrieval, and computer vision.</p>
 
         <div class="project-card">
-            <span class="project-title">When to Stop Thinking: Adaptive Chain-of-Thought Reasoning in LLMs </span>
-            <span class="tech-stack">[....]</span>
-            <p> Currrently working on it.... </p>
-            <a href="#">[View Code]</a> <a href="#">[Read Paper]</a>
-        </div>
-        
-        <div class="project-card">
-            <span class="project-title">Defending Against Indirect Prompt Injections: A Multi-Layered Verification Pipeline </span>
-            <span class="tech-stack">[Python, API, RAG, Llama 3 Instruct (8B), AWS, ReAct-style reasoning] - April 2026</span>
-            <p> Architected a 3-layer inference-time security pipeline to defend autonomous LLM agents against Indirect Prompt Injections (IPI) </p>
-            <p> Slashed the Attack Success Rate (ASR) of advanced social engineering payloads by 92.7% across 1,054 benchmark test cases without requiring model fine-tuning </p>
-            <p> Integrated a deterministic symbolic verifier and RAG-based threat intelligence system, reducing projected residual vulnerabilities to just 0.4% </p>
-            
-            <a href="https://github.com/kushp15/indirect-prompt-injection/tree/kp">[View Code]</a> <a href="https://docs.google.com/presentation/d/1v27lBaKVwQFrXltzUHP9vHWAVZn1UKjLWvdjSMTXJso/edit?usp=sharing">[Read Paper]</a>
-        </div>
-
-        <div class="project-card">
-            <span class="project-title">GOD-100: Gap & Product Count Estimation in Dense Retail Environments </span>
-            <span class="tech-stack">[Python, torch, Unik3D, CVAT, AWS ] - April 2026 </span>
-            <p> Developed end-to-end computer vision pipeline for retail analytics, combining object detection (YOLOv8, Faster R-CNN, DETR) with depth estimation (UniK3D, Depth-Anything) to detect shelf gaps and estimate missing product counts </p>
-            <p> Built and annotated custom datasets (10K+ bounding boxes, 1.3K+ gap labels), including synthetic data generation pipelines using depth-based heuristics to enable supervised learning for novel gap detection tasks </p>
-            <p> Designed and trained multi-modal deep learning models with RGB + depth fusion, improving gap detection (AP50 up to 28%) and enabling regression/classification-based product count estimation </p>
-            <p> Optimized model performance and deployment efficiency using PyTorch, AWS GPU (T4), mixed training strategies, and achieved sub-200ms inference latency for real-time retail shelf monitoring </p>
-            <a href="#">[View Code]</a> <a href="#">[Read Paper]</a>
+            <div class="project-thumb">
+                <svg viewBox="0 0 160 120" aria-hidden="true">
+                    <path d="M80 14 L124 30 V62 C124 88 104 104 80 110 C56 104 36 88 36 62 V30 Z" class="thumb-line"/>
+                    <path d="M80 30 L110 41 V62 C110 80 97 92 80 96 C63 92 50 80 50 62 V41 Z" class="thumb-dim"/>
+                    <path d="M66 62 L76 72 L96 50" class="thumb-line thumb-thick"/>
+                    <text x="6" y="20" class="thumb-text">&lt;inj&gt;</text>
+                    <text x="126" y="112" class="thumb-text">L1-L3</text>
+                </svg>
+            </div>
+            <div class="project-body">
+                <span class="project-title">Prompt Injection Defense for LLM Agents</span>
+                <span class="tech-stack">[LLM Security, AI Agents, RAG, Llama 3 8B Instruct, LLM-as-a-Judge, TF-IDF] - CMU, 2026</span>
+                <p>Built a 3-layer inference-time defense pipeline for autonomous LLM agents using structural delimiters, a router LLM firewall, and an LLM-as-a-judge, <strong>cutting prompt injection success on InjecAgent from 75.0% to 4.5%</strong> without any model fine-tuning.</p>
+                <p>Added a deterministic symbolic verifier and TF-IDF RAG threat intelligence to catch attacks the LLM judge missed, <strong>intercepting 97.7% of residual failures</strong>.</p>
+                <div class="project-links">
+                    <a href="https://github.com/kushp15/indirect-prompt-injection/tree/kp" target="_blank">[View Code]</a>
+                    <a href="https://drive.google.com/file/d/1RIFgpkNg52lKcsqMDkvWHmsC74kFk0Dj/view?usp=sharing" target="_blank">[Read Report]</a>
+                    <a href="https://docs.google.com/presentation/d/1v27lBaKVwQFrXltzUHP9vHWAVZn1UKjLWvdjSMTXJso/edit?usp=sharing" target="_blank">[Slides]</a>
+                </div>
+            </div>
         </div>
 
         <div class="project-card">
-            <span class="project-title">End-to-end NLP System Building (RAG) </span>
-            <span class="tech-stack">[Python, RAG, Selenium, BeautifulSoup4, crawl4ai, pdfplumber, FAISS, Rank-BM25, RRF ] - Feb 2026</span>
-            <p> Engineered an end-to-end Retrieval-Augmented Generation (RAG) pipeline to accurately answer domain-specific queries regarding Pittsburgh and Carnegie Mellon University, successfully mitigating LLM hallucinations on localized and time-sensitive data </p>
-            <p> Developed robust custom web scrapers using Selenium, BeautifulSoup, and pdfplumber to extract and clean unstructured text from dynamic websites, event calendars, and budget PDFs into a centralized knowledge base </p>
-            <p> Architected and evaluated four retrieval methodologies, ultimately deploying a Hybrid Retriever combining Sparse (BM25) and Dense search with Reciprocal Rank Fusion (RRF) and Cross-Encoder re-ranking, achieving a peak total system score of 48.93% and a 4.21 LLM Judge rating. </p>
-
-            <a href="https://github.com/kushp15/End-to-end-NLP-System-Building">[View Code]</a> <a href="https://github.com/kushp15/End-to-end-NLP-System-Building/blob/main/report.pdf">[Read Paper]</a>
+            <div class="project-thumb">
+                <svg viewBox="0 0 160 120" aria-hidden="true">
+                    <circle cx="22" cy="60" r="7" class="thumb-line"/>
+                    <circle cx="52" cy="60" r="7" class="thumb-line"/>
+                    <circle cx="82" cy="60" r="7" class="thumb-line"/>
+                    <circle cx="112" cy="60" r="7" class="thumb-dim"/>
+                    <circle cx="142" cy="60" r="7" class="thumb-dim"/>
+                    <path d="M29 60 H45 M59 60 H75 M89 60 H105 M119 60 H135" class="thumb-dim"/>
+                    <path d="M82 53 V30 H126" class="thumb-line"/>
+                    <path d="M120 24 L128 30 L120 36" class="thumb-line"/>
+                    <text x="104" y="22" class="thumb-text">EXIT</text>
+                    <text x="10" y="100" class="thumb-text">p(ready)=0.93</text>
+                </svg>
+            </div>
+            <div class="project-body">
+                <span class="project-title">Efficient LLM Reasoning with Early Exit</span>
+                <span class="tech-stack">[Chain-of-Thought, LLM Inference, Probing, PyTorch, Distributed Evaluation] - CMU, 2026</span>
+                <p>Explored <em>when to stop thinking</em>: trained a lightweight MLP probe on 4,096-dimensional LLM hidden states to predict when the model is ready to answer, enabling early exit from chain-of-thought <strong>with ~0.80 ROC-AUC</strong>.</p>
+                <p>Built distributed inference and evaluation pipelines for long reasoning workloads, <strong>achieving up to 98.1% simulated token savings</strong> across four benchmarks.</p>
+                <div class="project-links">
+                    <a href="https://drive.google.com/file/d/11W3IsCwMzg_2AlwXQzWjWcesZWzRbe1e/view?usp=sharing" target="_blank">[Read Report]</a>
+                </div>
+            </div>
         </div>
 
+        <div class="project-card">
+            <div class="project-thumb">
+                <svg viewBox="0 0 160 120" aria-hidden="true">
+                    <rect x="10" y="18" width="34" height="22" class="thumb-dim"/>
+                    <rect x="10" y="49" width="34" height="22" class="thumb-dim"/>
+                    <rect x="10" y="80" width="34" height="22" class="thumb-dim"/>
+                    <path d="M44 29 L72 60 M44 60 H72 M44 91 L72 60" class="thumb-dim"/>
+                    <circle cx="82" cy="60" r="10" class="thumb-line"/>
+                    <path d="M89 67 L100 78" class="thumb-line thumb-thick"/>
+                    <path d="M104 60 H118" class="thumb-line"/>
+                    <rect x="120" y="42" width="32" height="36" class="thumb-line"/>
+                    <path d="M126 52 H146 M126 60 H146 M126 68 H138" class="thumb-dim"/>
+                    <text x="112" y="100" class="thumb-text">BM25+</text>
+                </svg>
+            </div>
+            <div class="project-body">
+                <span class="project-title">RAG Question-Answering System</span>
+                <span class="tech-stack">[Python, RAG, Selenium, BeautifulSoup4, crawl4ai, pdfplumber, FAISS, BM25, MiniLM, RRF, Cross-Encoder] - CMU, 2026</span>
+                <p>Developed a data pipeline to crawl, clean, and chunk web pages, event calendars, and PDFs about CMU and Pittsburgh into a searchable knowledge base, reducing LLM hallucinations on local and time-sensitive questions.</p>
+                <p>Built a hybrid retriever combining BM25 and MiniLM dense embeddings with Reciprocal Rank Fusion and cross-encoder re-ranking, evaluated with F1, ROUGE, and LLM-as-a-judge, <strong>improving F1 by 10% over BM25</strong>.</p>
+                <div class="project-links">
+                    <a href="https://github.com/kushp15/End-to-end-NLP-System-Building" target="_blank">[View Code]</a>
+                    <a href="https://github.com/kushp15/End-to-end-NLP-System-Building/blob/main/report.pdf" target="_blank">[Read Report]</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-thumb">
+                <svg viewBox="0 0 160 120" aria-hidden="true">
+                    <path d="M10 40 H150 M10 75 H150 M10 110 H150" class="thumb-dim"/>
+                    <rect x="16" y="16" width="14" height="24" class="thumb-dim"/>
+                    <rect x="34" y="16" width="14" height="24" class="thumb-dim"/>
+                    <rect x="92" y="16" width="14" height="24" class="thumb-dim"/>
+                    <rect x="110" y="16" width="14" height="24" class="thumb-dim"/>
+                    <rect x="128" y="16" width="14" height="24" class="thumb-dim"/>
+                    <rect x="52" y="12" width="36" height="28" class="thumb-line thumb-dash"/>
+                    <text x="55" y="9" class="thumb-text">gap:2</text>
+                    <rect x="16" y="51" width="14" height="24" class="thumb-dim"/>
+                    <rect x="34" y="51" width="14" height="24" class="thumb-dim"/>
+                    <rect x="52" y="51" width="14" height="24" class="thumb-dim"/>
+                    <rect x="70" y="51" width="14" height="24" class="thumb-dim"/>
+                    <rect x="124" y="51" width="14" height="24" class="thumb-dim"/>
+                    <rect x="88" y="47" width="32" height="28" class="thumb-line thumb-dash"/>
+                    <rect x="16" y="86" width="14" height="24" class="thumb-dim"/>
+                    <rect x="34" y="86" width="14" height="24" class="thumb-dim"/>
+                    <rect x="52" y="86" width="14" height="24" class="thumb-dim"/>
+                    <rect x="70" y="86" width="14" height="24" class="thumb-dim"/>
+                    <rect x="88" y="86" width="14" height="24" class="thumb-dim"/>
+                    <rect x="106" y="86" width="14" height="24" class="thumb-dim"/>
+                    <rect x="124" y="86" width="14" height="24" class="thumb-dim"/>
+                </svg>
+            </div>
+            <div class="project-body">
+                <span class="project-title">GOD-100: Gap &amp; Product Count Estimation in Dense Retail Environments</span>
+                <span class="tech-stack">[Python, PyTorch, YOLOv8, Faster R-CNN, DETR, UniK3D, Depth-Anything, CVAT, AWS] - CMU, April 2026</span>
+                <p>Developed an end-to-end computer vision pipeline for retail analytics, combining object detection (YOLOv8, Faster R-CNN, DETR) with depth estimation (UniK3D, Depth-Anything) to detect shelf gaps and estimate missing product counts.</p>
+                <p>Built and annotated custom datasets (<strong>10K+ bounding boxes, 1.3K+ gap labels</strong>), including synthetic data generation using depth-based heuristics for this novel gap detection task.</p>
+                <p>Trained multi-modal RGB + depth fusion models, improving gap detection (<strong>AP50 up to 28%</strong>) and reaching <strong>sub-200ms inference latency</strong> on AWS T4 GPUs for real-time shelf monitoring.</p>
+            </div>
+        </div>
     `,
 
     // 3. COURSES PAGE
@@ -71,8 +204,14 @@ const pages = {
         
         <h2 style="margin-top: 20px; color: var(--dim-color);">Carnegie Mellon University</h2>
         <ul class="course-list">
-            <h4 style="margin-top: 20px; color: var(--dim-color);">Spring 2026</h4>
 
+            <h4 style="margin-top: 20px; color: var(--dim-color);">Fall 2026 (On Going)</h4>
+            <li><strong>[15640]</strong> Distributed Systems</li>
+            <li><strong>[14735]</strong> Secure Coding</li>
+            <li><strong>[10605]</strong> Machine Learning with Large Datasets</li>
+            <li><strong>[24784]</strong> Special Topics: Trustworthy AI</li>
+
+            <h4 style="margin-top: 20px; color: var(--dim-color);">Spring 2026</h4>
             <li><strong>[11711]</strong> Advanced Natural Language Processing</li>
             <li><strong>[18786]</strong> Introduction to Deep Learning</li>
             <li><strong>[14760]</strong> Advanced Real World Data Networks</li>
@@ -103,19 +242,16 @@ const pages = {
     // 4. RESUME PAGE
     resume: `
         <h1>Resume</h1>
-        <p>You can view my resume below or open it in a new tab.</p>
-        
-        <iframe 
-            src="kushPatel_resume_2026.pdf" 
-            width="100%" 
-            height="800px" 
-            style="border: var(--border-style); background-color: white; margin-bottom: 20px;">
-        </iframe>
+        <div class="resume-bar">
+            <p>A quick look at my education, experience, and projects.</p>
+            <div class="resume-actions">
+                <a href="${resumeFile}" target="_blank" class="resume-btn"><i class="fas fa-external-link-alt"></i> Open</a>
+                <a href="${resumeFile}" download class="resume-btn resume-btn-solid"><i class="fas fa-download"></i> Download</a>
+            </div>
+        </div>
 
-        <div style="text-align: center;">
-            <a href="kushPatel_resume_2026.pdf" target="_blank" style="background: var(--accent-color); color: var(--bg-color); padding: 12px 24px; font-weight: bold; display: inline-block; border-radius: 4px; text-decoration: none;">
-                <i class="fas fa-external-link-alt"></i> Open PDF in New Tab
-            </a>
+        <div class="resume-viewer">
+            <iframe src="${resumeFile}#toolbar=0&navpanes=0&view=FitH" title="Kush Patel Resume" class="resume-frame"></iframe>
         </div>
     `
 };

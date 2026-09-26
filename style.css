@@ -142,9 +142,65 @@ strong { color: var(--text-color); font-weight: bold; background: var(--highligh
 .project-title { font-size: 1.2rem; color: var(--accent-color); font-weight: bold; margin-bottom: 10px; display: block;}
 .tech-stack { font-size: 0.8rem; color: var(--dim-color); margin-bottom: 10px; display: block;}
 
+/* Project card with thumbnail */
+.project-card { display: flex; gap: 20px; align-items: flex-start; transition: border-color 0.2s, background-color 0.3s; }
+.project-card:hover { border-color: var(--accent-color); }
+.project-body { flex: 1; min-width: 0; }
+.project-body p:last-of-type { margin-bottom: 12px; }
+.project-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.project-links a { color: var(--accent-color); }
+.project-thumb {
+    width: 180px; flex-shrink: 0; aspect-ratio: 4 / 3;
+    border: var(--border-style); background: var(--highlight-bg);
+    display: flex; align-items: center; justify-content: center; padding: 10px;
+}
+.project-thumb svg { width: 100%; height: 100%; }
+.thumb-line { fill: none; stroke: var(--accent-color); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.thumb-dim { fill: none; stroke: var(--dim-color); stroke-width: 1.5; opacity: 0.7; }
+.thumb-thick { stroke-width: 4; }
+.thumb-dash { stroke-dasharray: 4 3; }
+.thumb-text { fill: var(--accent-color); font-family: var(--font-main); font-size: 11px; }
+
+/* --- ABOUT PAGE EXTRAS --- */
+.section-heading { font-size: 1.1rem; color: var(--accent-color); margin: 35px 0 15px; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin: 10px 0 10px; }
+.stat-box { background: var(--card-bg); border: var(--border-style); padding: 15px; }
+.stat-num { display: block; font-size: 1.4rem; font-weight: bold; color: var(--accent-color); }
+.stat-label { display: block; font-size: 0.8rem; color: var(--dim-color); line-height: 1.4; }
+
+.timeline { border-left: 2px solid var(--accent-color); margin-left: 6px; padding-left: 20px; }
+.timeline-item { position: relative; margin-bottom: 22px; }
+.timeline-item::before {
+    content: ""; position: absolute; left: -27px; top: 6px;
+    width: 12px; height: 12px; background: var(--bg-color);
+    border: 2px solid var(--accent-color); border-radius: 50%;
+}
+.timeline-date { display: block; font-size: 0.8rem; color: var(--dim-color); }
+.timeline-title { display: block; font-weight: bold; color: var(--accent-color); }
+.timeline-sub { display: block; font-size: 0.9rem; color: var(--dim-color); }
+.timeline-points { margin-top: 8px; padding-left: 0; }
+.timeline-points li { list-style: none; font-size: 0.9rem; margin-bottom: 6px; padding-left: 18px; position: relative; }
+.timeline-points li::before { content: ">"; position: absolute; left: 0; color: var(--accent-color); }
+
+.skill-group { margin-bottom: 14px; }
+.skill-label { display: block; font-size: 0.85rem; color: var(--dim-color); margin-bottom: 6px; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tags span { font-size: 0.8rem; border: 1px solid var(--accent-color); color: var(--accent-color); padding: 2px 8px; border-radius: 4px; }
+
 /* --- COURSE LIST STYLES --- */
 .course-list li { margin-bottom: 10px; list-style: none; }
 .course-list li::before { content: "> "; color: var(--accent-color); }
+
+/* --- RESUME PAGE --- */
+.resume-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; }
+.resume-bar p { margin-bottom: 0; }
+.resume-actions { display: flex; gap: 10px; }
+.resume-btn { border: 1px solid var(--accent-color); color: var(--accent-color); padding: 6px 14px; border-radius: 4px; font-size: 0.9rem; }
+.resume-btn:hover, .resume-btn-solid { background: var(--accent-color); color: var(--bg-color); }
+.resume-btn-solid:hover { opacity: 0.85; color: var(--bg-color); }
+.resume-viewer { border: var(--border-style); background: var(--card-bg); padding: 10px; margin-bottom: 20px; }
+.resume-frame { display: block; width: 100%; height: 75vh; min-height: 500px; border: 1px solid var(--accent-color); background: #fff; }
 
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
@@ -161,4 +217,6 @@ strong { color: var(--text-color); font-weight: bold; background: var(--highligh
     .avatar-container { justify-content: center; }
     .navbar { justify-content: center; flex-wrap: wrap; }
     #content-area { overflow-y: visible; }
+    .project-card { flex-direction: column; }
+    .project-thumb { width: 100%; max-height: 200px; }
 }
